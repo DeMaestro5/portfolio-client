@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+/* Custom CSS Variables */
+@layer base {
+  :root {
+    --color-bg: #fafafa;
+    --color-text: #0a0a0a;
+    --color-text-secondary: #525252;
+    --color-text-muted: #8c8c8c;
+    --color-border: #e0e0e0;
+  }
+}
+
+/* Custom Animations (Not in Tailwind) */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Font Smoothing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c0c0c0;
+}

@@ -2,6 +2,7 @@ import Activities from '../components/sections/Activities';
 import Hero from '../components/sections/Hero';
 import Work from '../components/sections/Work';
 import Divider from '../components/ui/divider';
+import Capabilities from '../components/sections/Capabilities';
 
 export default function Home() {
   return (
@@ -11,6 +12,8 @@ export default function Home() {
       <Work />
       <Divider />
       <Activities />
+      <Divider />
+      <Capabilities />
     </div>
   );
 }

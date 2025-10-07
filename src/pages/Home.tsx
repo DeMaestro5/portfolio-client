@@ -3,17 +3,22 @@ import Hero from '../components/sections/Hero';
 import Work from '../components/sections/Work';
 import Divider from '../components/ui/divider';
 import Capabilities from '../components/sections/Capabilities';
+import Metrics from '../components/sections/Metrics';
 
 export default function Home() {
   return (
-    <div className='max-w-screen mx-auto h-screen px-24 border-stone-200 rounded-t-md'>
-      <Hero />
-      <Divider />
-      <Work />
-      <Divider />
-      <Activities />
-      <Divider />
-      <Capabilities />
+    <div className='max-w-screen h-screen  '>
+      <div className='border-1 border-stone-200 rounded-t-md mx-16 px-24 m-4'>
+        <Hero />
+        <Divider />
+        <Work />
+        <Divider />
+        <Activities />
+        <Divider />
+        <Capabilities />
+        <Divider />
+        <Metrics />
+      </div>
     </div>
   );
 }

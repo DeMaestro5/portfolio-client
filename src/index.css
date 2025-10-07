@@ -19,6 +19,14 @@
   transform: translateX(12px);
 }
 
+.metric-card-hover {
+  transition: transform 0.3s ease;
+}
+
+.metric-card-hover:hover {
+  transform: translateY(-12px);
+}
+
 .card-with-shadow {
   position: relative;
   overflow: hidden;

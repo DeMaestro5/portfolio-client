@@ -302,7 +302,7 @@ export default function container() {
   return (
     <div className='grid grid-cols-4 justify-items-center gap-[16px] bg-neutral-50 overflow-hidden'>
       {data.map((item) => (
-        <Card data={item} />
+        <Card data={item} key={item.id} />
       ))}
     </div>
   );

@@ -1,6 +1,6 @@
 export default function contact() {
   return (
-    <section className='pt-[200px] pb-[120px] text-center '>
+    <section className='pt-[100px] pb-[120px] text-center '>
       <h2 className='text-7xl font-extralight text-neutral-900 tracking-[-3px] leading-none mb-[64px]'>
         Let's work together
       </h2>

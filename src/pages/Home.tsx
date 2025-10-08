@@ -10,7 +10,7 @@ import Footer from '../components/sections/Footer';
 export default function Home() {
   return (
     <div className='max-w-screen h-screen  '>
-      <div className='border-1 border-stone-200 rounded-t-md mx-16 px-24 m-4'>
+      <div className='border-1 border-stone-200 rounded-t-md mx-16 px-24'>
         <Hero />
         <Divider />
         <Work />

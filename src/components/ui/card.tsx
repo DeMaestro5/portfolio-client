@@ -1,10 +1,15 @@
 import type { Project } from './container';
+import { useNavigate } from 'react-router-dom';
 
-export default function card({ data }: { data: Project }) {
+export default function Card({ data }: { data: Project }) {
   const { category, title, description, techStack, stats } = data;
+  const navigate = useNavigate();
 
   return (
-    <div className='bg-white py-[56px] px-[48px] card-hover-border card-with-shadow max-w-[400px] border-1 border-neutral-200  w-full relative cursor-pointer transition-all duration-0.4 rounded-md hover:shadow-lg'>
+    <div
+      onClick={() => navigate(`/projects/${data.title}`)}
+      className='bg-white py-[56px] px-[48px] card-hover-border card-with-shadow max-w-[400px] border-1 border-neutral-200  w-full relative cursor-pointer transition-all duration-0.4 rounded-md hover:shadow-lg'
+    >
       <div className='text-[11px] text-neutral-500 tracking-[1.5px] font-medium uppercase mb-[20px]'>
         {category}
       </div>

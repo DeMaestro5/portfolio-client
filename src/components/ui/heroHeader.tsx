@@ -4,7 +4,7 @@ export default function heroHeader({
   description,
 }: {
   title: string;
-  heading: string;
+  heading: string | undefined;
   description: string;
 }) {
   return (

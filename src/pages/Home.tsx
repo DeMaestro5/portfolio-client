@@ -4,7 +4,7 @@ import Work from '../components/sections/Work';
 import Divider from '../components/ui/divider';
 import Capabilities from '../components/sections/Capabilities';
 import Metrics from '../components/sections/Metrics';
-import Contact from '../components/sections/contact';
+import Contact from '../components/sections/Contact';
 import Footer from '../components/sections/Footer';
 
 export default function Home() {

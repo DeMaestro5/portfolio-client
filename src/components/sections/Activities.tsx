@@ -49,7 +49,7 @@ export default function Activities() {
   const activity = dummyActivity;
 
   return (
-    <section className='relative py-[100px]'>
+    <section className='relative py-12 sm:py-16 md:py-20 lg:py-24'>
       <Heading number='02' title='Activities' />
       {activity.map((item) => (
         <ActivityCard key={item.id} activity={item} />

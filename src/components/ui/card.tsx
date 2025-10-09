@@ -8,7 +8,7 @@ export default function Card({ data }: { data: Project }) {
   return (
     <div
       onClick={() => navigate(`/projects/${data.title}`)}
-      className='bg-white py-[56px] px-[48px] card-hover-border card-with-shadow max-w-[400px] border-1 border-neutral-200  w-full relative cursor-pointer transition-all duration-0.4 rounded-md hover:shadow-lg'
+      className='bg-white py-8 px-6 sm:py-10 sm:px-8 lg:py-14 lg:px-12 card-hover-border card-with-shadow max-w-[400px] border border-neutral-200 w-full relative cursor-pointer transition-all duration-400 rounded-md hover:shadow-lg'
     >
       <div className='text-[11px] text-neutral-500 tracking-[1.5px] font-medium uppercase mb-[20px]'>
         {category}
@@ -32,7 +32,7 @@ export default function Card({ data }: { data: Project }) {
         </span>
       </div>
 
-      <div className='flex text-sm gap-[24px] pt-[24px] border-t-1 border-neutral-200 text-neutral-500 tubular-nums'>
+      <div className='flex flex-wrap text-sm gap-3 sm:gap-6 pt-6 border-t border-neutral-200 text-neutral-500 tubular-nums'>
         <span className='m-0 p-0 border-border'>{stats.stars} stars</span>
         <span>{stats.forks} forks</span>
         <span>{stats.lastUpdated} </span>

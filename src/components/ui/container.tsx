@@ -300,7 +300,7 @@ export const dummyProjects: Project[] = [
 export default function container() {
   const data = dummyProjects;
   return (
-    <div className='grid grid-cols-4 justify-items-center gap-[16px] bg-neutral-50 overflow-hidden'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center gap-4 sm:gap-6 lg:gap-8 bg-neutral-50 overflow-hidden'>
       {data.map((item) => (
         <Card data={item} key={item.id} />
       ))}

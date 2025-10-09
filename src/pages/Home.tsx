@@ -9,8 +9,8 @@ import Footer from '../components/sections/Footer';
 
 export default function Home() {
   return (
-    <div className='max-w-screen h-screen  '>
-      <div className='border-1 border-stone-200 rounded-t-md mx-16 px-24'>
+    <div className='min-h-screen'>
+      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-stone-200 rounded-t-md'>
         <Hero />
         <Divider />
         <Work />

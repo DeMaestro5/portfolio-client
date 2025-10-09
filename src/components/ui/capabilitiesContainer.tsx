@@ -20,7 +20,7 @@ const dummyCapabilities: Capabilities[] = [
 export default function capabilitiesContainer() {
   const data = dummyCapabilities;
   return (
-    <div className='grid grid-cols-5 gap-[4px] bg-neutral-50 overflow-hidden rounded-lg border-1 border-neutral-200'>
+    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 sm:gap-2 md:gap-3 bg-neutral-50 overflow-hidden rounded-lg border border-neutral-200'>
       {data.map((item) => (
         <CapabilitiesCard key={item.name} data={item} />
       ))}

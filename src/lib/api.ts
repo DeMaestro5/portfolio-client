@@ -1,16 +1,17 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.SERVER_URL || 'http://localhost:8000',
+  baseURL: import.meta.env.VITE_SERVER_URL || 'http://localhost:8000',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
+console.log('im here');
 export const githubApi = {
   getProfile: () => api.get('/github/profile'),
   getOverview: () => api.get('/github/overview'),
-  getActivity: () => api.get('/github/activities'),
+  getActivities: () => api.get('/github/activities'),
   getRepositories: () => api.get('/github/repositories'),
   getStats: () => api.get('/github/stats'),
   getEvents: () => api.get('/github/events'),

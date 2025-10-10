@@ -1,4 +1,4 @@
-import type { GitHubCommit } from './Github';
+import type { GitHubCommit } from './Github/Github';
 
 export interface LanguageMetric {
   name: string;

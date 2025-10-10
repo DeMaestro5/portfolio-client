@@ -19,7 +19,7 @@ import {
 } from '../../components/helpers/context.helper';
 import { githubApi } from '../../lib/api';
 import { socketClient } from '../../lib/socket';
-import { GithubContext } from './GithubContext';
+import { GithubContext } from './githubContext';
 
 const TTL_MS: Record<GithubSlices, number> = {
   profile: 5 * 60_000,
@@ -82,12 +82,10 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
     []
   );
 
-  console.log('fetch data');
   const fetchProfile = useCallback(
     async (force = false) => {
       if (!force && !isStale(profile.lastFetched, TTL_MS.profile)) return;
       startLoading(setProfile);
-      console.log('profile data');
       try {
         const { data } = await githubApi.getProfile();
         console.log(data);

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GithubContext } from './GithubContext';
+import { GithubContext } from './githubContext';
 
 export function useGithub() {
   const context = useContext(GithubContext);

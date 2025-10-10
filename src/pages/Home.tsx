@@ -6,8 +6,17 @@ import Capabilities from '../components/sections/Capabilities';
 import Metrics from '../components/sections/Metrics';
 import Contact from '../components/sections/Contact';
 import Footer from '../components/sections/Footer';
+import { useEffect } from 'react';
+import { useMetrics } from '../context/metrics/useMetrics';
 
 export default function Home() {
+  const { state, fetchActivities } = useMetrics();
+
+  useEffect(() => {
+    fetchActivities();
+  }, [fetchActivities]);
+
+  console.log(state);
   return (
     <div className='min-h-screen'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-stone-200 rounded-t-md'>

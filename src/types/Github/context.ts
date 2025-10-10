@@ -6,14 +6,7 @@ import type {
   GitHubRepository,
   GitHubStats,
 } from './Github';
-
-export type ResourceState<T> = {
-  data: T | null;
-  loading: boolean;
-  error: string | null;
-  lastFetched: number | null;
-};
-
+import type { ResourceState } from '../types';
 export type GithubContextValue = {
   state: {
     profile: ResourceState<GitHubProfile>;

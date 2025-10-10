@@ -10,16 +10,21 @@ import type {
 import type {
   GithubContextValue,
   GithubSlices,
-  ResourceState,
 } from '../../types/Github/context';
 import {
   isStale,
   makeInitialResource,
   toErrorMessage,
 } from '../../components/helpers/context.helper';
+import type { ResourceState } from '../../types/types';
 import { githubApi } from '../../lib/api';
 import { socketClient } from '../../lib/socket';
 import { GithubContext } from './githubContext';
+import {
+  startLoading,
+  setSuccess,
+  setFailure,
+} from '../../components/helpers/context.helper';
 
 const TTL_MS: Record<GithubSlices, number> = {
   profile: 5 * 60_000,
@@ -50,38 +55,6 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
     makeInitialResource()
   );
 
-  const startLoading = useCallback(
-    <T,>(set: React.Dispatch<React.SetStateAction<ResourceState<T>>>) => {
-      set((prev) => ({ ...prev, loading: true, error: null }));
-    },
-    []
-  );
-
-  const setSuccess = useCallback(
-    <T,>(
-      set: React.Dispatch<React.SetStateAction<ResourceState<T>>>,
-      data: T
-    ) => {
-      set({
-        data,
-        loading: false,
-        error: null,
-        lastFetched: Date.now(),
-      });
-    },
-    []
-  );
-
-  const setFailure = useCallback(
-    <T,>(
-      set: React.Dispatch<React.SetStateAction<ResourceState<T>>>,
-      error: string
-    ) => {
-      set((prev) => ({ ...prev, loading: false, error }));
-    },
-    []
-  );
-
   const fetchProfile = useCallback(
     async (force = false) => {
       if (!force && !isStale(profile.lastFetched, TTL_MS.profile)) return;
@@ -94,7 +67,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
         setFailure(setProfile, toErrorMessage(err));
       }
     },
-    [profile.lastFetched, startLoading, setProfile, setSuccess, setFailure]
+    [profile.lastFetched]
   );
 
   const fetchOverview = useCallback(
@@ -108,7 +81,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
         setFailure(setOverview, toErrorMessage(err));
       }
     },
-    [overview.lastFetched, startLoading, setOverview, setSuccess, setFailure]
+    [overview.lastFetched]
   );
 
   const fetchActivities = useCallback(
@@ -122,13 +95,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
         setFailure(setActivities, toErrorMessage(err));
       }
     },
-    [
-      activities.lastFetched,
-      startLoading,
-      setActivities,
-      setSuccess,
-      setFailure,
-    ]
+    [activities.lastFetched]
   );
 
   const fetchRepositories = useCallback(
@@ -143,13 +110,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
         setFailure(setRepositories, toErrorMessage(err));
       }
     },
-    [
-      repositories.lastFetched,
-      startLoading,
-      setRepositories,
-      setSuccess,
-      setFailure,
-    ]
+    [repositories.lastFetched]
   );
 
   const fetchStats = useCallback(
@@ -163,7 +124,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
         setFailure(setStats, toErrorMessage(err));
       }
     },
-    [stats.lastFetched, startLoading, setStats, setSuccess, setFailure]
+    [stats.lastFetched]
   );
 
   const fetchEvents = useCallback(
@@ -177,7 +138,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
         setFailure(setEvents, toErrorMessage(err));
       }
     },
-    [events.lastFetched, startLoading, setEvents, setSuccess, setFailure]
+    [events.lastFetched]
   );
 
   const fetchRepositoryByName = useCallback(

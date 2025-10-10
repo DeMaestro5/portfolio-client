@@ -39,10 +39,10 @@ export const metricsApi = {
 };
 
 export const projectsApi = {
-  getProjects: () => api.get('/all-projects'),
-  getFeaturedProjects: () => api.get('/featured'),
+  getProjects: () => api.get('projects/all-projects'),
+  getFeaturedProjects: () => api.get('projects/featured'),
   getProjectsByLanguage: (language: string) =>
-    api.get(`/by-language/${language}`),
-  searchProjects: (query: string) => api.get(`/search/${query}`),
-  getProjectById: (id: string) => api.get(`/project/${id}`),
+    api.get(`projects/by-language/${language}`),
+  searchProjects: (query: string) => api.get(`projects/search/${query}`),
+  getProjectById: (id: number) => api.get(`projects/project/${id}`),
 };

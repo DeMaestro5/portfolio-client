@@ -142,12 +142,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
   );
 
   const fetchRepositoryByName = useCallback(
-    async (name: string, force = false): Promise<GitHubRepository | null> => {
-      if (!force && repositories.data) {
-        const found = repositories.data.find((repo) => repo.name === name);
-        if (found) return found;
-      }
-
+    async (name: string): Promise<GitHubRepository | null> => {
       try {
         const { data } = await githubApi.getRepositoryByName(name);
         return data as GitHubRepository;
@@ -155,7 +150,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
         return null;
       }
     },
-    [repositories.data]
+    []
   );
   const sync = useCallback(async () => {
     try {

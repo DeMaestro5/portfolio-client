@@ -7,7 +7,6 @@ const api = axios.create({
   },
 });
 
-console.log('im here');
 export const githubApi = {
   getProfile: () => api.get('/github/profile'),
   getOverview: () => api.get('/github/overview'),

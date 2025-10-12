@@ -77,7 +77,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
       if (!force && !isStale(languages.lastFetched, TTL_MS.languages)) return;
       try {
         const { data } = await metricsApi.getLanguagesMetrics();
-        setSuccess(setLanguages, data as LanguageMetricsResponse);
+        setSuccess(setLanguages, data);
       } catch (error) {
         setFailure(setLanguages, toErrorMessage(error));
       }
@@ -90,7 +90,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
       if (!force && !isStale(activities.lastFetched, TTL_MS.activities)) return;
       try {
         const { data } = await metricsApi.getActivitiesMetrics();
-        setSuccess(setActivities, data as ActivityMetric[]);
+        setSuccess(setActivities, data);
       } catch (error) {
         setFailure(setActivities, toErrorMessage(error));
       }
@@ -104,7 +104,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
         return;
       try {
         const { data } = await metricsApi.getRepositoriesMetrics();
-        setSuccess(setRepositories, data as RepositorySummary);
+        setSuccess(setRepositories, data);
       } catch (error) {
         setFailure(setRepositories, toErrorMessage(error));
       }
@@ -118,7 +118,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
         return;
       try {
         const { data } = await metricsApi.getContributionsMetrics();
-        setSuccess(setContributions, data as ContributionsData);
+        setSuccess(setContributions, data);
       } catch (error) {
         setFailure(setContributions, toErrorMessage(error));
       }
@@ -131,7 +131,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
       if (!force && !isStale(commits.lastFetched, TTL_MS.commits)) return;
       try {
         const { data } = await metricsApi.getCommitsMetrics();
-        setSuccess(setCommits, data as CommitSummary);
+        setSuccess(setCommits, data);
       } catch (error) {
         setFailure(setCommits, toErrorMessage(error));
       }
@@ -145,7 +145,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
         return;
       try {
         const { data } = await metricsApi.getProductivityMetrics();
-        setSuccess(setProductivity, data as ProductivityMetrics);
+        setSuccess(setProductivity, data);
       } catch (error) {
         setFailure(setProductivity, toErrorMessage(error));
       }
@@ -158,7 +158,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
       if (!force && !isStale(streak.lastFetched, TTL_MS.streak)) return;
       try {
         const { data } = await metricsApi.getStreakMetrics();
-        setSuccess(setStreak, data as StreakMetrics);
+        setSuccess(setStreak, data);
       } catch (error) {
         setFailure(setStreak, toErrorMessage(error));
       }
@@ -171,7 +171,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
       if (!force && !isStale(summary.lastFetched, TTL_MS.summary)) return;
       try {
         const { data } = await metricsApi.getSummaryMetrics();
-        setSuccess(setSummary, data as MetricsSummary);
+        setSuccess(setSummary, data);
       } catch (error) {
         setFailure(setSummary, toErrorMessage(error));
       }
@@ -184,7 +184,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
       if (!force && !isStale(timeline.lastFetched, TTL_MS.timeline)) return;
       try {
         const { data } = await metricsApi.getTimelineMetrics();
-        setSuccess(setTimeline, data as TimelineMetrics);
+        setSuccess(setTimeline, data);
       } catch (error) {
         setFailure(setTimeline, toErrorMessage(error));
       }
@@ -198,7 +198,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
         return;
       try {
         const { data } = await metricsApi.getTechnologiesMetrics();
-        setSuccess(setTechnologies, data as TechnologiesData);
+        setSuccess(setTechnologies, data);
       } catch (error) {
         setFailure(setTechnologies, toErrorMessage(error));
       }

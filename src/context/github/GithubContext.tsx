@@ -62,7 +62,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
       try {
         const { data } = await githubApi.getProfile();
         console.log(data);
-        setSuccess(setProfile, data as GitHubProfile);
+        setSuccess(setProfile, data);
       } catch (err) {
         setFailure(setProfile, toErrorMessage(err));
       }
@@ -76,7 +76,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
       startLoading(setOverview);
       try {
         const { data } = await githubApi.getOverview();
-        setSuccess(setOverview, data as GitHubOverview);
+        setSuccess(setOverview, data);
       } catch (err) {
         setFailure(setOverview, toErrorMessage(err));
       }
@@ -90,7 +90,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
       startLoading(setActivities);
       try {
         const { data } = await githubApi.getActivities();
-        setSuccess(setActivities, data as GitHubActivity[]);
+        setSuccess(setActivities, data);
       } catch (err) {
         setFailure(setActivities, toErrorMessage(err));
       }
@@ -105,7 +105,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
       startLoading(setRepositories);
       try {
         const { data } = await githubApi.getRepositories();
-        setSuccess(setRepositories, data as GitHubRepository[]);
+        setSuccess(setRepositories, data);
       } catch (err) {
         setFailure(setRepositories, toErrorMessage(err));
       }
@@ -119,7 +119,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
       startLoading(setStats);
       try {
         const { data } = await githubApi.getStats();
-        setSuccess(setStats, data as GitHubStats);
+        setSuccess(setStats, data);
       } catch (err) {
         setFailure(setStats, toErrorMessage(err));
       }
@@ -133,7 +133,7 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
       startLoading(setEvents);
       try {
         const { data } = await githubApi.getEvents();
-        setSuccess(setEvents, data as GitHubEvents[]);
+        setSuccess(setEvents, data);
       } catch (err) {
         setFailure(setEvents, toErrorMessage(err));
       }

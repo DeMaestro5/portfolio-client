@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { Project } from '../../types/Projects/Projects';
 import type {
   ProjectsContextValue,
@@ -29,14 +29,6 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
   const [featured, setFeatured] = useState<ResourceState<Project[]>>(
     makeInitialResource()
   );
-
-  useEffect(() => {
-    async function fetchData() {
-      const data = await projectsApi.getProjects();
-      console.log(data);
-    }
-    fetchData();
-  }, []);
 
   const fetchProjects = useCallback(
     async (force = false) => {

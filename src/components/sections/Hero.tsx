@@ -2,16 +2,24 @@ import PulseDot from '../ui/pulseDot';
 import HeroHeader from '../ui/heroHeader';
 import { useEffect } from 'react';
 import { useMetrics } from '../../context/metrics/useMetrics';
+import Loader from '../ui/loader';
+import ErrorState from '../ui/error';
 
 export default function Hero() {
-  const { state, fetchCommits } = useMetrics();
-  const { loading, data } = state.commits;
+  const { state, fetchSummary } = useMetrics();
+  const { loading, data, error } = state.summary;
+  const currentStreak = data?.activity?.currentStreak ?? 0;
+  const totalCommits = data?.portfolio?.totalCommits ?? 0;
+  const totalProjects = data?.portfolio?.totalProjects ?? 0;
 
   useEffect(() => {
-    fetchCommits();
-  }, [fetchCommits]);
-  if (loading) return <div>Loading...</div>;
-  console.log(data);
+    fetchSummary();
+  }, [fetchSummary]);
+  if (loading || !data) return <Loader />;
+
+  if (error) {
+    return <ErrorState message={error} onRetry={() => fetchSummary(true)} />;
+  }
 
   return (
     <section className='min-h-[70vh] flex flex-col justify-center pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 lg:px-8'>
@@ -27,7 +35,7 @@ export default function Hero() {
       <div className='flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-16 md:mt-28 sm:mt-16 mt-8 '>
         <div className='flex flex-col'>
           <div className='text-4xl sm:text-5xl md:text-6xl font-extralight text-neutral-900 tracking-tight leading-none mb-3'>
-            1,348
+            {totalCommits.toLocaleString()}
           </div>
           <div className='text-xs text-neutral-500 tracking-tight font-light uppercase'>
             Commits
@@ -35,7 +43,7 @@ export default function Hero() {
         </div>
         <div className='flex flex-col'>
           <div className='text-4xl sm:text-5xl md:text-6xl font-extralight text-neutral-900 tracking-tight leading-none mb-3'>
-            25
+            {totalProjects}
           </div>
           <div className='text-xs text-neutral-500 tracking-tight font-light uppercase'>
             Projects
@@ -43,10 +51,10 @@ export default function Hero() {
         </div>
         <div className='flex flex-col'>
           <div className='text-4xl sm:text-5xl md:text-6xl font-extralight text-neutral-900 tracking-tight leading-none mb-3'>
-            20
+            {currentStreak}
           </div>
           <div className='text-xs text-neutral-500 tracking-tight font-light uppercase'>
-            days streak
+            current streak
           </div>
         </div>
       </div>

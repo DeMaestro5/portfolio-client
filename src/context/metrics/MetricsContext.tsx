@@ -17,6 +17,7 @@ import {
   makeInitialResource,
   setFailure,
   setSuccess,
+  startLoading,
   toErrorMessage,
 } from '../../components/helpers/context.helper';
 import type { ResourceState } from '../../types/types';
@@ -169,6 +170,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
   const fetchSummary = useCallback(
     async (force = false) => {
       if (!force && !isStale(summary.lastFetched, TTL_MS.summary)) return;
+      startLoading(setSummary);
       try {
         const { data } = await metricsApi.getSummaryMetrics();
         setSuccess(setSummary, data);

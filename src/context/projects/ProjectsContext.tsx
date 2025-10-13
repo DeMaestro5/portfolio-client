@@ -10,6 +10,7 @@ import {
   makeInitialResource,
   setFailure,
   setSuccess,
+  startLoading,
   toErrorMessage,
 } from '../../components/helpers/context.helper';
 import { projectsApi } from '../../lib/api';
@@ -33,6 +34,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
   const fetchProjects = useCallback(
     async (force = false) => {
       if (!force && !isStale(projects.lastFetched, TTL_MS.projects)) return;
+      startLoading(setProjects);
       try {
         const { data } = await projectsApi.getProjects();
         setSuccess(setProjects, data as Project[]);

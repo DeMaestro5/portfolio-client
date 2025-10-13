@@ -1,4 +1,4 @@
-import Container from '../ui/container';
+import FeaturedProjectsContainer from '../ui/container';
 import Heading from '../ui/heading';
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from 'lucide-react';
@@ -18,7 +18,7 @@ export default function Work() {
           <ArrowRightIcon className='w-4 h-4 sm:w-5 sm:h-5 ' />
         </div>
       </div>
-      <Container />
+      <FeaturedProjectsContainer />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import Container from '../components/ui/container';
+import Container from '../components/ui/featuredProjectsContainer';
 import HeroHeader from '../components/ui/heroHeader';
 
 export default function Projects() {

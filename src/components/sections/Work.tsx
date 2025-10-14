@@ -1,9 +1,9 @@
-import FeaturedProjectsContainer from '../ui/container';
+import FeaturedProjectsContainer from '../ui/featuredProjectsContainer';
 import Heading from '../ui/heading';
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from 'lucide-react';
 
-export default function Work() {
+export default function FeaturedWork() {
   return (
     <section className='relative py-12 sm:py-16 md:py-20 lg:py-24'>
       <div className='flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mb-8 md:mb-16 lg:mb-20 gap-4'>

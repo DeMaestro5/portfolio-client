@@ -1,6 +1,6 @@
 import Activities from '../components/sections/Activities';
 import Hero from '../components/sections/Hero';
-import Work from '../components/sections/Work';
+import FeaturedWork from '../components/sections/Work';
 import Divider from '../components/ui/divider';
 import Capabilities from '../components/sections/Capabilities';
 import Metrics from '../components/sections/Metrics';
@@ -13,7 +13,7 @@ export default function Home() {
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-stone-200 rounded-t-md'>
         <Hero />
         <Divider />
-        <Work />
+        <FeaturedWork />
         <Divider />
         <Activities />
         <Divider />

@@ -20,3 +20,24 @@ export interface CardProps {
     featured?: boolean;
   };
 }
+
+export interface ActivityCardProps {
+  date: string;
+  type:
+    | 'project_created'
+    | 'commit_milestone'
+    | 'star_received'
+    | 'fork_received'
+    | 'activity_peak'
+    | 'project_updated';
+  project?: string;
+  description: string;
+  metadata?: {
+    commits?: number;
+    stars?: number;
+    forks?: number;
+    language?: string;
+    size?: number;
+  };
+  live?: boolean;
+}

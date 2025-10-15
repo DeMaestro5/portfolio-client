@@ -76,6 +76,7 @@ export function MetricsProvider({ children }: { children: React.ReactNode }) {
   const fetchLanguages = useCallback(
     async (force = false) => {
       if (!force && !isStale(languages.lastFetched, TTL_MS.languages)) return;
+      startLoading(setLanguages);
       try {
         const { data } = await metricsApi.getLanguagesMetrics();
         setSuccess(setLanguages, data);

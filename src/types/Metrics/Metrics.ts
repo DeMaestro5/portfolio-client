@@ -9,6 +9,7 @@ export interface LanguageMetric {
 
 export interface LanguageSummary {
   mostUsed: string;
+  percentage: number;
   totalLanguages: number;
   totalProjects: number;
   averageProjectsPerLanguage: number;

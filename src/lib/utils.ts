@@ -411,12 +411,18 @@ export function normalizeLanguageMetricsResponse(
     { name: '', count: -1, percentage: 0, projects: [] as string[] }
   ).name;
 
+  const mostUsedPercentage = languages.reduce(
+    (acc, cur) => (cur.count > acc.count ? cur : acc),
+    { name: '', count: -1, percentage: 0, projects: [] as string[] }
+  ).percentage;
+
   return {
     message: str(get(root, 'message')),
     data: {
       languages,
       summary: {
         mostUsed,
+        percentage: mostUsedPercentage,
         totalLanguages,
         totalProjects,
         averageProjectsPerLanguage: totalLanguages

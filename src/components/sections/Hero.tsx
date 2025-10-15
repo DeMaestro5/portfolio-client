@@ -8,9 +8,6 @@ import ErrorState from '../ui/error';
 export default function Hero() {
   const { state, fetchSummary } = useMetrics();
   const { loading, data, error } = state.summary;
-  const currentStreak = data?.activity?.currentStreak ?? 0;
-  const totalCommits = data?.portfolio?.totalCommits ?? 0;
-  const totalProjects = data?.portfolio?.totalProjects ?? 0;
 
   useEffect(() => {
     fetchSummary();
@@ -21,6 +18,9 @@ export default function Hero() {
     return <ErrorState message={error} onRetry={() => fetchSummary(true)} />;
   }
 
+  const currentStreak = data.activity.currentStreak;
+  const totalCommits = data.portfolio.totalCommits;
+  const totalProjects = data.portfolio.totalProjects;
   return (
     <section className='min-h-[70vh] flex flex-col justify-center pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 lg:px-8'>
       <HeroHeader

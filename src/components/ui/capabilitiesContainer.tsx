@@ -9,7 +9,7 @@ const dummyCapabilities: Capabilities[] = [
   { name: 'React', level: 'Expert' },
   { name: 'Node.js', level: 'Expert' },
   { name: 'Next.js', level: 'Advanced' },
-  { name: 'Python', level: 'Advanced' },
+  { name: 'JavaScript', level: 'Advanced' },
   { name: 'PostgreSQL', level: 'Advanced' },
   { name: 'Redis', level: 'Proficient' },
   { name: 'Docker', level: 'Proficient' },

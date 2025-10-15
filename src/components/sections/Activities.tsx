@@ -8,22 +8,22 @@ import ErrorState from '../ui/error';
 export default function Activities() {
   const { state, fetchTimeline } = useMetrics();
   const { loading, data, error } = state.timeline;
-  const first20 = data?.events.slice(0, 20);
 
   useEffect(() => {
     fetchTimeline();
   }, [fetchTimeline]);
-  console.log(data);
 
   if (loading || !data) return <Loader />;
 
   if (error)
     return <ErrorState message={error} onRetry={() => fetchTimeline(true)} />;
 
+  const first20 = data.events.slice(0, 20);
+
   return (
     <section className='relative py-12 sm:py-16 md:py-20 lg:py-24'>
       <Heading number='02' title='Activities' />
-      {first20?.map((item, index) => (
+      {first20.map((item, index) => (
         <ActivityCard key={`${item.date}-${index}`} activity={item} />
       ))}
     </section>

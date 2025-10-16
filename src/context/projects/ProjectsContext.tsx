@@ -30,6 +30,9 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
   const [featured, setFeatured] = useState<ResourceState<Project[]>>(
     makeInitialResource()
   );
+  const [projectById, setProjectById] = useState<ResourceState<Project>>(
+    makeInitialResource()
+  );
 
   const fetchProjects = useCallback(
     async (force = false) => {
@@ -72,8 +75,17 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const fetchProjectById = useCallback(async (id: number): Promise<Project> => {
+    startLoading(setProjectById);
+    try {
+      const { data } = await projectsApi.getProjectById(id);
+      setSuccess(setProjectById, data);
+      return data;
+    } catch (error) {
+      setFailure(setProjectById, toErrorMessage(error));
+    }
     const { data } = await projectsApi.getProjectById(id);
-    return data as Project;
+    setSuccess(setProjectById, data);
+    return data;
   }, []);
 
   const values = useMemo<ProjectsContextValue>(
@@ -81,6 +93,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
       state: {
         projects,
         featured,
+        projectById,
       },
       fetchProjects,
       fetchFeaturedProjects,
@@ -91,6 +104,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
     [
       projects,
       featured,
+      projectById,
       fetchProjects,
       fetchFeaturedProjects,
       fetchProjectsByLanguage,

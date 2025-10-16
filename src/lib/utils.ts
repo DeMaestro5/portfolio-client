@@ -23,7 +23,7 @@ import type {
   TimelineEvent,
   TimelineMetrics,
 } from '../types/Metrics/Metrics';
-import type { Project } from '../types/Projects/Projects';
+import type { Project, RelatedProject } from '../types/Projects/Projects';
 
 // --------------- helpers ---------------
 
@@ -958,6 +958,22 @@ export function normalizeProject(input: unknown): Project {
       return Array.isArray(v)
         ? v.filter((x) => typeof x === 'string')
         : undefined;
+    })(),
+    commits: ((): GitHubCommit[] | undefined => {
+      const v = get(raw, 'commits');
+      return Array.isArray(v) ? v.map(normalizeGitHubCommit) : undefined;
+    })(),
+    builtWith: ((): string[] | undefined => {
+      const v = get(raw, 'builtWith');
+      return Array.isArray(v) ? v : undefined;
+    })(),
+    keyFeatures: ((): string[] | undefined => {
+      const v = get(raw, 'keyFeatures');
+      return Array.isArray(v) ? v : undefined;
+    })(),
+    relatedProjects: ((): RelatedProject[] | undefined => {
+      const v = get(raw, 'relatedProjects');
+      return Array.isArray(v) ? v.map(normalizeProject) : undefined;
     })(),
   };
 }

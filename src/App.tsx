@@ -8,7 +8,7 @@ export default function Portfolio() {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/projects' element={<Projects />} />
-      <Route path='/projects/:name' element={<ProjectDetails />} />
+      <Route path='/projects/:id' element={<ProjectDetails />} />
     </Routes>
   );
 }

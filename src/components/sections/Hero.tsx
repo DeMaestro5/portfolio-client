@@ -51,7 +51,7 @@ export default function Hero() {
         </div>
         <div className='flex flex-col'>
           <div className='text-4xl sm:text-5xl md:text-6xl font-extralight text-neutral-900 tracking-tight leading-none mb-3'>
-            {currentStreak}
+            {`${currentStreak} days`}
           </div>
           <div className='text-xs text-neutral-500 tracking-tight font-light uppercase'>
             current streak

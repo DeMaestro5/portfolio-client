@@ -1,4 +1,4 @@
-import type { RelatedProject } from '../../pages/ProjectDetails';
+import type { RelatedProject } from '../../types/types';
 
 export default function RelatedProjectCard({ data }: { data: RelatedProject }) {
   const { label, detail } = data;
@@ -9,7 +9,7 @@ export default function RelatedProjectCard({ data }: { data: RelatedProject }) {
       </div>
 
       <div className='text-[13px] text-neutral-600 font-light mb-6'>
-        {detail}
+        {detail ? detail : 'No description available'}
       </div>
     </div>
   );

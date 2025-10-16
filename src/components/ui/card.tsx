@@ -39,7 +39,8 @@ export default function Card({ data }: CardProps) {
 
   return (
     <article
-      onClick={() => navigate(`/projects/${data.name}`)}
+      onClick={() => navigate(`/projects/${data.id}`)}
+      // onClick={() => console.log(data.id)}
       className='group relative bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-xl hover:border-neutral-300 transition-all duration-300 cursor-pointer overflow-hidden max-w-[400px] w-full'
     >
       {/* Project Header */}

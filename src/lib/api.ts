@@ -141,7 +141,7 @@ export const projectsApi = {
     return { data: normalizeProjects(res.data) };
   },
   getProjectById: async (id: number) => {
-    const res = await api.get(`projects/project/${id}`);
+    const res = await api.get(`projects/${id}`);
     return { data: normalizeProject(res.data) };
   },
 };

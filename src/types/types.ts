@@ -5,6 +5,22 @@ export type ResourceState<T> = {
   lastFetched: number | null;
 };
 
+export interface KeyFeatures {
+  feature: string;
+  detail?: string;
+}
+
+export interface Commit {
+  message: string;
+  author: string;
+  timestamp: string;
+}
+
+export interface RelatedProject {
+  label: string;
+  detail: string;
+}
+
 export interface CardProps {
   data: {
     id: number;

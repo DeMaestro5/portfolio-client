@@ -6,6 +6,7 @@ export type ProjectsContextValue = {
   state: {
     projects: ResourceState<Project[]>;
     featured: ResourceState<Project[]>;
+    projectById: ResourceState<Project>;
   };
   fetchProjects: (force?: boolean) => Promise<void>;
   fetchFeaturedProjects: (force?: boolean) => Promise<void>;

@@ -1,13 +1,13 @@
 import PulseDot from './pulseDot';
-import type { ActivityCardProps } from '../../types/types';
+import type { TimelineCardProps } from '../../types/types';
 import { formatDate } from '../helpers/formatDate';
 
-export default function activityCard({
-  activity,
+export default function TimelineCard({
+  timeline,
 }: {
-  activity: ActivityCardProps;
+  timeline: TimelineCardProps;
 }) {
-  const { type, description, project, date } = activity;
+  const { type, description, project, date } = timeline;
   const formatType = (type: string) => type.replace(/_/g, ' ').toUpperCase();
 
   const isRecent = (dateString: string) => {

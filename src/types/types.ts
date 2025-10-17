@@ -27,7 +27,7 @@ export interface CardProps {
   data: Project;
 }
 
-export interface ActivityCardProps {
+export interface TimelineCardProps {
   date: string;
   type:
     | 'project_created'

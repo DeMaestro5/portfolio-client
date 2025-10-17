@@ -1,3 +1,5 @@
+import type { Project } from './Projects/Projects';
+
 export type ResourceState<T> = {
   data: T | null;
   loading: boolean;
@@ -22,19 +24,7 @@ export interface RelatedProject {
 }
 
 export interface CardProps {
-  data: {
-    id: number;
-    name: string;
-    description: string | null;
-    language: string | null;
-    html_url: string;
-    stargazers_count: number;
-    forks_count: number;
-    updated_at: string;
-    status?: string;
-    technologies?: string[];
-    featured?: boolean;
-  };
+  data: Project;
 }
 
 export interface ActivityCardProps {

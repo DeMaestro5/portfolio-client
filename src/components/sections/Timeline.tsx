@@ -1,5 +1,5 @@
 import { useMetrics } from '../../context/metrics/useMetrics';
-import ActivityCard from '../ui/activityCard';
+import TimelineCard from '../ui/timelineCard';
 import Heading from '../ui/heading';
 import { useEffect } from 'react';
 import Loader from '../ui/loader';
@@ -22,9 +22,9 @@ export default function Activities() {
 
   return (
     <section className='relative py-12 sm:py-16 md:py-20 lg:py-24'>
-      <Heading number='02' title='Activities' />
+      <Heading number='02' title='Timeline' />
       {first20.map((item, index) => (
-        <ActivityCard key={`${item.date}-${index}`} activity={item} />
+        <TimelineCard key={`${item.date}-${index}`} timeline={item} />
       ))}
     </section>
   );

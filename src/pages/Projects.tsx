@@ -1,10 +1,37 @@
+import { useEffect, useMemo, useState } from 'react';
 import AllProjectsContainer from '../components/ui/allProjectsContainer';
 import HeroHeader from '../components/ui/heroHeader';
 import { useProjects } from '../context/projects/useProject';
+import Loader from '../components/ui/loader';
+import ErrorState from '../components/ui/error';
 
 export default function Projects() {
-  const { state } = useProjects();
-  const { data } = state.projects;
+  const [search, setSearch] = useState('');
+  const { state, fetchProjects } = useProjects();
+  const { data, loading, error } = state.projects;
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
+
+  const filteredProjects = useMemo(() => {
+    return (
+      data?.filter(
+        (project) =>
+          project.name.toLowerCase().includes(search.toLowerCase()) ||
+          project.description?.toLowerCase().includes(search.toLowerCase()) ||
+          project.language?.toLowerCase().includes(search.toLowerCase()) ||
+          project.topics?.some((topic) =>
+            topic.toLowerCase().includes(search.toLowerCase())
+          )
+      ) ?? []
+    );
+  }, [data, search]);
+
+  if (loading) return <Loader />;
+
+  if (error)
+    return <ErrorState message={error} onRetry={() => fetchProjects(true)} />;
 
   return (
     <div className='min-h-screen'>
@@ -16,25 +43,19 @@ export default function Projects() {
         />
         <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 py-6 sm:py-8 border-y border-neutral-200'>
           <div className='text-sm text-neutral-500'>
-            showing {data?.length} projects
+            showing {filteredProjects.length} projects
           </div>
-          <div className='flex flex-wrap gap-2'>
-            <button className='text-sm text-neutral-500 border border-neutral-200 rounded-lg px-3 py-2 sm:px-4 hover:bg-neutral-900 hover:text-white'>
-              All
-            </button>
-            <button className='text-sm text-neutral-500 border border-neutral-200 rounded-lg px-3 py-2 sm:px-4 hover:bg-neutral-900 hover:text-white'>
-              Frontend
-            </button>
-            <button className='text-sm text-neutral-500 border border-neutral-200 rounded-lg px-3 py-2 sm:px-4 hover:bg-neutral-900 hover:text-white'>
-              Backend
-            </button>
-            <button className='text-sm text-neutral-500 border border-neutral-200 rounded-lg px-3 py-2 sm:px-4 hover:bg-neutral-900 hover:text-white'>
-              Full-stack
-            </button>
-          </div>
+
+          <input
+            type='text'
+            placeholder='Search projects'
+            className='text-sm text-neutral-500 border border-neutral-200 rounded-lg px-3 py-2 sm:px-4'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
         <div className='py-8 sm:py-10 lg:py-12'>
-          <AllProjectsContainer />
+          <AllProjectsContainer data={filteredProjects} />
         </div>
       </div>
     </div>

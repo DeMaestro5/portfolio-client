@@ -5,7 +5,6 @@ import type { CardProps } from '../../types/types';
 export default function Card({ data }: CardProps) {
   const navigate = useNavigate();
 
-  // Format date to be more readable
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -21,7 +20,6 @@ export default function Card({ data }: CardProps) {
     return `Updated ${Math.floor(diffDays / 365)} years ago`;
   };
 
-  // Status badge color mapping
   const getStatusColor = (status?: string) => {
     switch (status) {
       case 'active':
@@ -40,18 +38,14 @@ export default function Card({ data }: CardProps) {
   return (
     <article
       onClick={() => navigate(`/projects/${data.id}`)}
-      // onClick={() => console.log(data.id)}
       className='group relative bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-xl hover:border-neutral-300 transition-all duration-300 cursor-pointer overflow-hidden max-w-[400px] w-full'
     >
-      {/* Project Header */}
       <div className='mb-4'>
-        {/* Project Name */}
         <h3 className='text-xl font-medium text-neutral-900 mb-2 group-hover:text-neutral-700 transition-colors flex items-start justify-between gap-2'>
           <span className='line-clamp-1'>{data.name}</span>
           <ExternalLink className='w-4 h-4 text-neutral-400 group-hover:text-neutral-900 transition-colors flex-shrink-0 mt-1' />
         </h3>
 
-        {/* Status Badge */}
         {data.status && (
           <div className='inline-block mb-3'>
             <span
@@ -64,13 +58,11 @@ export default function Card({ data }: CardProps) {
           </div>
         )}
 
-        {/* Description */}
         <p className='text-sm text-neutral-600 leading-relaxed line-clamp-2 min-h-[40px]'>
           {data.description || 'No description provided'}
         </p>
       </div>
 
-      {/* Tech Stack */}
       <div className='mb-4'>
         {data.language ? (
           <div className='flex items-center gap-2'>
@@ -94,28 +86,26 @@ export default function Card({ data }: CardProps) {
         )}
       </div>
 
-      {/* Stats Footer */}
       <div className='flex items-center justify-between pt-4 border-t border-neutral-100'>
-        {/* Left: Stars & Forks */}
         <div className='flex items-center gap-4 text-sm text-neutral-600'>
           <div className='flex items-center gap-1.5'>
             <Star className='w-4 h-4' />
-            <span>{data.stargazers_count}</span>
+            <span>{data.stargazers_count ?? 0}</span>
           </div>
           <div className='flex items-center gap-1.5'>
             <GitFork className='w-4 h-4' />
-            <span>{data.forks_count}</span>
+            <span>{data.forks_count ?? 0}</span>
           </div>
         </div>
 
-        {/* Right: Last Updated */}
         <div className='flex items-center gap-1.5 text-xs text-neutral-500'>
           <Calendar className='w-3.5 h-3.5' />
-          <span className='line-clamp-1'>{formatDate(data.updated_at)}</span>
+          <span className='line-clamp-1'>
+            {formatDate(data.updated_at || new Date().toISOString())}
+          </span>
         </div>
       </div>
 
-      {/* Hover Effect Border */}
       <div className='absolute inset-0 border-2 border-transparent group-hover:border-neutral-900/5 rounded-xl transition-all duration-300 pointer-events-none' />
     </article>
   );

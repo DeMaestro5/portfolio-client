@@ -1,0 +1,28 @@
+import { useProjects } from '../../context/projects/useProject';
+import Card from './card';
+import { useEffect } from 'react';
+import Loader from './loader';
+import ErrorState from './error';
+import type { CardProps } from '../../types/types';
+
+export default function AllProjectsContainer() {
+  const { state, fetchProjects } = useProjects();
+  const { loading, data, error } = state.projects;
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
+
+  if (loading || !data) return <Loader />;
+
+  if (error)
+    return <ErrorState message={error} onRetry={() => fetchProjects(true)} />;
+
+  return (
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
+      {data.map((project) => (
+        <Card key={project.id} data={project as CardProps['data']} />
+      ))}
+    </div>
+  );
+}

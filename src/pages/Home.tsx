@@ -11,13 +11,13 @@ export default function Home() {
   return (
     <div className='min-h-screen'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-stone-200 rounded-t-md'>
-        {/* <div className='flex justify-end gap-2'>
+        <div className='flex justify-end gap-2'>
           <button>Featured Work</button>
           <button>Timeline</button>
           <button>Capabilities</button>
           <button>Metrics</button>
           <button>Contact</button>
-        </div> */}
+        </div>
         <Hero />
         <Divider />
         <FeaturedWork />

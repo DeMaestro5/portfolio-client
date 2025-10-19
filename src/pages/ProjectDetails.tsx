@@ -9,6 +9,7 @@ import Loader from '../components/ui/loader';
 import ErrorState from '../components/ui/error';
 import { useProjects } from '../context/projects/useProject';
 import { formatDate } from '../components/helpers/formatDate';
+import BackButton from '../components/ui/backButton';
 
 export default function ProjectDetails() {
   const { state, fetchProjectById } = useProjects();
@@ -54,9 +55,10 @@ export default function ProjectDetails() {
 
   return (
     <div className='min-h-screen'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-stone-200 rounded-t-md '>
+      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-stone-200 rounded-t-lg '>
+        <BackButton />
         <HeroHeader
-          title={`home/projects/${data.name}`}
+          title={`projects | ${data.name}`}
           heading={data.name}
           description={data.description || 'No description available'}
         />

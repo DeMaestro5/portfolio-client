@@ -9,7 +9,7 @@ export default function heroHeader({
 }) {
   return (
     <>
-      <div className='pt-16 sm:pt-20 md:pt-28 pb-6 sm:pb-8 md:pb-10'>
+      <div className='sm:pt-20 md:pt-28 pb-6 sm:pb-8 md:pb-10'>
         <div className='text-[11px] sm:text-xs tracking-widest text-gray-400 uppercase mb-4 sm:mb-6 md:mb-8'>
           {title}
         </div>

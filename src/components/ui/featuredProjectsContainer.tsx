@@ -3,7 +3,6 @@ import Card from './card';
 import { useEffect } from 'react';
 import Loader from './loader';
 import ErrorState from './error';
-import type{ CardProps } from '../../types/types';
 
 export default function FeaturedProjectsContainer() {
   const { state, fetchFeaturedProjects } = useProjects();
@@ -23,7 +22,7 @@ export default function FeaturedProjectsContainer() {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
       {data.map((project) => (
-        <Card key={project.id} data={project as CardProps['data']} />
+        <Card key={project.id} data={project} />
       ))}
     </div>
   );

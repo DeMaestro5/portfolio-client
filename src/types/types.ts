@@ -27,6 +27,9 @@ export interface CardProps {
   data: Project;
 }
 
+export interface techStack {
+  data: { tech: string };
+}
 export interface TimelineCardProps {
   date: string;
   type:

@@ -163,7 +163,7 @@ export default function ProjectDetails() {
             </p>
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 sm:gap-2 md:gap-3'>
               {data.builtWith.map((item: string) => (
-                <BuiltWith key={item} data={{ techStack: [item] }} />
+                <BuiltWith key={item} data={{ tech: item }} />
               ))}
             </div>
           </div>

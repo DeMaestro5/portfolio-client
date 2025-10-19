@@ -1,6 +1,9 @@
 export default function contact() {
   return (
-    <section className='pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-16 sm:pb-20 md:pb-24 text-center '>
+    <section
+      id='contact'
+      className='pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-16 sm:pb-20 md:pb-24 text-center '
+    >
       <h2 className='text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extralight text-neutral-900 tracking-tight leading-none mb-8 sm:mb-12 md:mb-16'>
         Let's work together
       </h2>

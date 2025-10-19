@@ -21,7 +21,10 @@ export default function Activities() {
   const first20 = data.events.slice(0, 20);
 
   return (
-    <section className='relative py-12 sm:py-16 md:py-20 lg:py-24'>
+    <section
+      id='timeline'
+      className='relative py-12 sm:py-16 md:py-20 lg:py-24'
+    >
       <Heading number='02' title='Timeline' />
       {first20.map((item, index) => (
         <TimelineCard key={`${item.date}-${index}`} timeline={item} />

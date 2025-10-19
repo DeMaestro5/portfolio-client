@@ -4,6 +4,7 @@ import HeroHeader from '../components/ui/heroHeader';
 import { useProjects } from '../context/projects/useProject';
 import Loader from '../components/ui/loader';
 import ErrorState from '../components/ui/error';
+import BackButton from '../components/ui/backButton';
 
 export default function Projects() {
   const [search, setSearch] = useState('');
@@ -36,8 +37,9 @@ export default function Projects() {
   return (
     <div className='min-h-screen'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-stone-200 rounded-t-md '>
+        <BackButton />
         <HeroHeader
-          title='home/projects'
+          title='home | projects'
           heading='All Projects'
           description='A collection of projects showcasing full-stack development, real-time systems, and modern web technologies'
         />

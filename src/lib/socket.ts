@@ -1,6 +1,7 @@
 import { io, Socket } from 'socket.io-client';
 
-const SOCKET_URL = import.meta.env.SERVER_URL || 'http://localhost:8000';
+const SOCKET_URL =
+  import.meta.env.SERVER_URL || 'https://portfolio-api-lwap.onrender.com';
 
 class SocketClient {
   private socket: Socket | null = null;

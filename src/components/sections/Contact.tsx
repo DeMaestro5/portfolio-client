@@ -28,7 +28,7 @@ export default function contact() {
         </a>
         <a
           className='text-sm sm:text-base text-neutral-900 font-light py-2 sm:py-3 px-4 sm:px-6 border border-neutral-200 rounded-lg transition-all duration-300 bg-white hover:bg-neutral-900 cursor-pointer hover:text-white'
-          href='/resume.pdf'
+          href='/public/resume.pdf'
           download
         >
           Resume

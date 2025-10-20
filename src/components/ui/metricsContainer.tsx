@@ -29,7 +29,6 @@ export default function MetricsContainer() {
   useEffect(() => {
     fetchLanguages();
   }, [fetchLanguages]);
-  console.log(languageData);
 
   useEffect(() => {
     fetchSummary();
@@ -96,7 +95,6 @@ export default function MetricsContainer() {
   const streakMetrics = transformLongestStreakMetric(summaryData);
 
   const metrics = [languageMetrics, activityMetrics, streakMetrics];
-  console.log(metrics);
 
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 bg-neutral-50 overflow-hidden'>

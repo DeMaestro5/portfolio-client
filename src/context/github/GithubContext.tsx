@@ -61,7 +61,6 @@ export function GithubProvider({ children }: { children: React.ReactNode }) {
       startLoading(setProfile);
       try {
         const { data } = await githubApi.getProfile();
-        console.log(data);
         setSuccess(setProfile, data);
       } catch (err) {
         setFailure(setProfile, toErrorMessage(err));

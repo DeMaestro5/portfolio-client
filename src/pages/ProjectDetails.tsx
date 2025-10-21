@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom';
 import HeroHeader from '../components/ui/heroHeader';
-import ProjectActivity from '../components/ui/projectActivity';
-import RelatedProjectCard from '../components/ui/relatedProjectCard';
+import ProjectActivity from '../components/projects/projectActivity';
+import RelatedProjectCard from '../components/projects/relatedProjectCard';
 import BuiltWith from '../components/ui/builtWith';
-import KeyFeaturesCard from '../components/ui/keyFeaturesCard';
+import KeyFeaturesCard from '../components/cards/keyFeaturesCard';
 import { useEffect } from 'react';
 import Loader from '../components/ui/loader';
 import ErrorState from '../components/ui/error';
 import { useProjects } from '../context/projects/useProject';
-import { formatDate } from '../components/helpers/formatDate';
+import { formatDate } from '../helpers/formatDate';
 import BackButton from '../components/ui/backButton';
 
 export default function ProjectDetails() {

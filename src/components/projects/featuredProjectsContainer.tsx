@@ -1,8 +1,8 @@
 import { useProjects } from '../../context/projects/useProject';
-import Card from './card';
+import Card from '../cards/card';
 import { useEffect } from 'react';
-import Loader from './loader';
-import ErrorState from './error';
+import Loader from '../ui/loader';
+import ErrorState from '../ui/error';
 
 export default function FeaturedProjectsContainer() {
   const { state, fetchFeaturedProjects } = useProjects();

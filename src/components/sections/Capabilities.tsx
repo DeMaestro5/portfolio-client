@@ -1,4 +1,4 @@
-import CapabilitiesContainer from '../ui/capabilitiesContainer';
+import CapabilitiesContainer from '../capabilities/capabilitiesContainer';
 import Heading from '../ui/heading';
 export default function Capabilities() {
   return (

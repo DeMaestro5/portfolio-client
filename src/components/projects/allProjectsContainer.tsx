@@ -1,5 +1,4 @@
-import Card from './card';
-// import type { CardProps } from '../../types/types';
+import Card from '../cards/card';
 import type { Project } from '../../types/Projects/Projects';
 
 export default function AllProjectsContainer({ data }: { data: Project[] }) {

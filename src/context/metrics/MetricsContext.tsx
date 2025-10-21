@@ -19,7 +19,7 @@ import {
   setSuccess,
   startLoading,
   toErrorMessage,
-} from '../../components/helpers/context.helper';
+} from '../../helpers/context.helper';
 import type { ResourceState } from '../../types/types';
 import { metricsApi } from '../../lib/api';
 import { socketClient } from '../../lib/socket';

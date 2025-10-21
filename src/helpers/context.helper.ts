@@ -1,4 +1,4 @@
-import type { ResourceState } from '../../types/types';
+import type { ResourceState } from '../types/types';
 
 export function makeInitialResource<T>(): ResourceState<T> {
   return { data: null, loading: false, error: null, lastFetched: null };

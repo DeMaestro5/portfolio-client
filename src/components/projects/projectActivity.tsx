@@ -1,5 +1,5 @@
 import type { Commit } from '../../types/types';
-import { formatDate } from '../helpers/formatDate';
+import { formatDate } from '../../helpers/formatDate';
 
 export default function ProjectActivity({ data }: { data: Commit }) {
   const { message, author, timestamp } = data;

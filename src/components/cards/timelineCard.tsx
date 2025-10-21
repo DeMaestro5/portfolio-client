@@ -1,6 +1,6 @@
-import PulseDot from './pulseDot';
+import PulseDot from '../ui/pulseDot';
 import type { TimelineCardProps } from '../../types/types';
-import { formatDate } from '../helpers/formatDate';
+import { formatDate } from '../../helpers/formatDate';
 
 export default function TimelineCard({
   timeline,

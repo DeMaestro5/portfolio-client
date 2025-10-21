@@ -1,4 +1,4 @@
-import FeaturedProjectsContainer from '../ui/featuredProjectsContainer';
+import FeaturedProjectsContainer from '../projects/featuredProjectsContainer';
 import Heading from '../ui/heading';
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from 'lucide-react';

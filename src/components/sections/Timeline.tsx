@@ -1,5 +1,5 @@
 import { useMetrics } from '../../context/metrics/useMetrics';
-import TimelineCard from '../ui/timelineCard';
+import TimelineCard from '../cards/timelineCard';
 import Heading from '../ui/heading';
 import { useEffect, useState } from 'react';
 import Loader from '../ui/loader';

@@ -15,7 +15,7 @@ import {
   isStale,
   makeInitialResource,
   toErrorMessage,
-} from '../../components/helpers/context.helper';
+} from '../../helpers/context.helper';
 import type { ResourceState } from '../../types/types';
 import { githubApi } from '../../lib/api';
 import { socketClient } from '../../lib/socket';
@@ -24,7 +24,7 @@ import {
   startLoading,
   setSuccess,
   setFailure,
-} from '../../components/helpers/context.helper';
+} from '../../helpers/context.helper';
 
 const TTL_MS: Record<GithubSlices, number> = {
   profile: 5 * 60_000,

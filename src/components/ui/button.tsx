@@ -1,4 +1,4 @@
-import scrollToSection from '../helpers/scrollToSection';
+import scrollToSection from '../../helpers/scrollToSection';
 
 export default function Button({
   children,

@@ -12,7 +12,7 @@ import {
   setSuccess,
   startLoading,
   toErrorMessage,
-} from '../../components/helpers/context.helper';
+} from '../../helpers/context.helper';
 import { projectsApi } from '../../lib/api';
 import { ProjectsContext } from './projectContext';
 

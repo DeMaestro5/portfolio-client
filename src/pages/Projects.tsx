@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import AllProjectsContainer from '../components/ui/allProjectsContainer';
+import AllProjectsContainer from '../components/projects/allProjectsContainer';
 import HeroHeader from '../components/ui/heroHeader';
 import { useProjects } from '../context/projects/useProject';
 import Loader from '../components/ui/loader';

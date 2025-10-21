@@ -1,5 +1,5 @@
 import Heading from '../ui/heading';
-import MetricsContainer from '../ui/metricsContainer';
+import MetricsContainer from '../metrics/metricsContainer';
 
 export default function Metrics() {
   return (

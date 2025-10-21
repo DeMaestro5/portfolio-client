@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useMetrics } from '../../context/metrics/useMetrics';
 
 import MetricsCard from './metricsCard';
-import Loader from './loader';
-import ErrorState from './error';
+import Loader from '../ui/loader';
+import ErrorState from '../ui/error';
 import type {
   LanguageMetricsResponse,
   MetricsSummary,
